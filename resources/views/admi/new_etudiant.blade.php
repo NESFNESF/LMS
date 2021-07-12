@@ -71,13 +71,13 @@
                     <li >
                         <a href="{{route('new_matiere',$user->id)}}" > <i class="menu-icon fa ti-plus"></i>Ajouter une nouvelle matiere</a>
                     </li>
-                    <h3 class="menu-title">Gestion Etudiants</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">Gestion élèves</h3><!-- /.menu-title -->
 
                     <li >
-                        <a href="{{route('liste_etudiants',$user->id)}}" > <i class="menu-icon fa fa-laptop"></i>Liste etudiants</a>
+                        <a href="{{route('liste_etudiants',$user->id)}}" > <i class="menu-icon fa fa-laptop"></i>Liste élèves</a>
                     </li>
                     <li >
-                        <a href="{{route('new_etudiant',$user->id)}}" > <i class="menu-icon fa ti-plus"></i>Ajouter un nouvel etudiant</a>
+                        <a href="{{route('new_etudiant',$user->id)}}" > <i class="menu-icon fa ti-plus"></i>Ajouter un nouvel élèves</a>
                     </li>
                     <h3 class="menu-title">Gestion de connexion</h3><!-- /.menu-title -->
 
@@ -235,7 +235,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li class="active text-secondary">GESTION DES ETUDIANTS \ Nouvel étudiant</li>
+                            <li class="active text-secondary">GESTION DES ELEVES \ Nouvel élèves</li>
                         </ol>
                     </div>
                 </div>
@@ -248,7 +248,7 @@
                 <div class="col-xs-6 col-sm-6">
                         <div class="card">
                             <div class="card-header">
-                               Entrez les informations du nouvel etudiant:
+                               Entrez les informations du nouvel élèves:
                             </div>
                             <div class="card-body card-block">
                             <form class="form" action = "{{route('store_etudiant',$user->id)}}" method="POST">

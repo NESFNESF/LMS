@@ -191,7 +191,7 @@
                         </div>
                         <div class="card-body">
 
-                           <h2>{{ $trace->titre }}</h2>
+                           <h4>{{ $trace->titre }}</h4>
                             <p><a href="{{ asset('Cours/'.$trace->lien)}}">
 
                                 <img src="{{ asset('pdf.jpeg') }}" alt="" width="75" height="80">
@@ -207,11 +207,11 @@
                     <div class="row justify-content-between">
                         <div class="col">
 
-                            <a href="{{ route('liste_classe_matiere_lecon_consigne_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h3>Consigne </h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_consigne_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h3>Précédent </h3> </a>
 
                         </div>
                         <div class="col">
-                            <a href="{{ route('liste_classe_matiere_lecon_evaluation_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h3>Evaluations</h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_evaluation_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h3>Suivant</h3> </a>
 
                         </div>
                      </div>

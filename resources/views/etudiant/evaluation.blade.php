@@ -200,7 +200,7 @@
 
                             @foreach ($qcms as $qcm )
                             <p>
-                                <h2> {{ $i }}- {{ $qcm->question }}</h2>
+                                <h4> {{ $i }}- {{ $qcm->question }}</h4>
 
                                 <div class="row justify-content-between">
                                     <div class="col">
@@ -228,7 +228,7 @@
 
                             @foreach ($vfs as $vf )
                             <p>
-                                <h2> {{ $j }}- {{ $vf->question }}</h2>
+                                <h4> {{ $j }}- {{ $vf->question }}</h4>
 
                                 <div class="row justify-content-between">
 
@@ -252,7 +252,7 @@
                     <div class="row justify-content-between">
                         <div class="col">
 
-                            <a href="{{ route('liste_classe_matiere_lecon_trace_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h3>Retour </h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_trace_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h3>Précédent </h3> </a>
 
                         </div>
                         <div class="col">

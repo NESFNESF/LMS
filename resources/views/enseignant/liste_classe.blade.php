@@ -218,7 +218,7 @@
 
 
                                             <li class="list-group-item">
-                                                <i class="fa fa-male"></i><i class="fa fa-female"></i> Nombre etudiants <span class="badge badge-warning pull-right r-activity">50</span>
+                                                <i class="fa fa-male"></i><i class="fa fa-female"></i> Nombre élèves <span class="badge badge-warning pull-right r-activity">50</span>
                                             </li>
 
 

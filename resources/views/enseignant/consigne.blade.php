@@ -196,7 +196,7 @@
 
                             @foreach ($consignes as $consigne )
                             <p>
-                                <h2> {{ $i }}- {{ $consigne->question }}</h2>
+                                <h3> {{ $i }}- {{ $consigne->question }}</h3>
 
                                 <div class="row justify-content-between">
                                     <div class="col">
@@ -222,11 +222,11 @@
                     <div class="row justify-content-between">
                         <div class="col">
 
-                            <a href="{{ route('liste_classe_matiere_lecon_situation',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h3>Situation problème </h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_situation',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h4>Situation problème </h4> </a>
 
                         </div>
                         <div class="col">
-                            <a href="{{ route('liste_classe_matiere_lecon_trace',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h3>Trace écrite</h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_trace',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h4>Trace écrite</h4> </a>
 
                         </div>
                      </div>

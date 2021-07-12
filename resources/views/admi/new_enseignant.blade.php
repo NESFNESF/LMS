@@ -71,13 +71,13 @@
                     <li >
                         <a href="{{route('new_matiere',$user->id)}}" > <i class="menu-icon fa ti-plus"></i>Ajouter une nouvelle matiere</a>
                     </li>
-                    <h3 class="menu-title">Gestion Etudiants</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">Gestion élèves</h3><!-- /.menu-title -->
 
                     <li >
-                        <a href="{{route('liste_etudiants',$user->id)}}" > <i class="menu-icon fa fa-laptop"></i>Liste etudiants</a>
+                        <a href="{{route('liste_etudiants',$user->id)}}" > <i class="menu-icon fa fa-laptop"></i>Liste élèves</a>
                     </li>
                     <li >
-                        <a href="{{route('new_etudiant',$user->id)}}" > <i class="menu-icon fa ti-plus"></i>Ajouter un nouvel etudiant</a>
+                        <a href="{{route('new_etudiant',$user->id)}}" > <i class="menu-icon fa ti-plus"></i>Ajouter un nouvel élèves</a>
                     </li>
                     <h3 class="menu-title">Gestion de connexion</h3><!-- /.menu-title -->
 

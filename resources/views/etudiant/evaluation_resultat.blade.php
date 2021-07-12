@@ -201,7 +201,7 @@
 
                             @foreach ($qcms as $qcm )
                             <p>
-                                <h2> {{ $i }}- {{ $qcm->question }}</h2>
+                                <h4> {{ $i }}- {{ $qcm->question }}</h4>
 
                                 <div class="row justify-content-between">
                                     <div class="col">
@@ -354,17 +354,17 @@
                     <div class="row justify-content-between">
                         <div class="col">
 
-                            <a href="{{ route('liste_classe_matiere_lecon_trace_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h3>Retour </h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_trace_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h5>Précédent </h5> </a>
 
                         </div>
                         <div class="col">
                             @if ($note < 50)
-                            <a href="{{ route('liste_classe_matiere_lecon_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-danger btn"><h3>Vous avez échoué </h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-danger btn"><h5>Vous avez échoué </h5> </a>
 
 
                             @else
 
-                            <a href="{{ route('liste_classe_matiere_lecon_evaluation_etudiant_success',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id ,'note' => $note]) }}" class="btn btn-success btn"><h3>Félicitation vous avez réussi </h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_evaluation_etudiant_success',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id ,'note' => $note]) }}" class="btn btn-success btn"><h5>Félicitation vous avez réussi </h5> </a>
 
                             @endif
                         </div>

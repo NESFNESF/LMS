@@ -193,7 +193,7 @@
 
 
                             @foreach ($situations as $situation )
-                            <h2>- {{ $situation }}</h2>
+                            <h4>- {{ $situation }}</h4>
                             @endforeach
                         </div>
                     </div>
@@ -201,11 +201,11 @@
                     <div class="row justify-content-between">
                         <div class="col-4">
 
-                            <a href="{{ route('liste_classe_matiere_lecon_indicateur',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h3>Indicateurs de compétence </h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_indicateur',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h5>Précédent </h5> </a>
 
                         </div>
                         <div class="col-4">
-                            <a href="{{ route('liste_classe_matiere_lecon_consigne',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h3>Consigne</h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_consigne',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h5>Suivant</h5> </a>
 
                         </div>
                      </div>
