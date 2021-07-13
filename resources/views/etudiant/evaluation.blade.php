@@ -252,7 +252,7 @@
                     <div class="row justify-content-between">
                         <div class="col">
 
-                            <a href="{{ route('liste_classe_matiere_lecon_trace_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h3>Précédent </h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_objectif_etudiant_eval',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h3>Précédent </h3> </a>
 
                         </div>
                         <div class="col">

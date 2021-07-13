@@ -190,8 +190,10 @@
 
                         </div>
                         <div class="card-body">
-
-                           <h4>{{ $trace->titre }}</h4>
+                           @foreach (explode("$", $trace->titre) as $tr)
+                            <h4>{{ $tr }}</h4>
+                        @endforeach
+                           
                             <p><a href="{{ asset('Cours/'.$trace->lien)}}">
 
                                 <img src="{{ asset('pdf.jpeg') }}" alt="" width="75" height="80">
@@ -211,7 +213,7 @@
 
                         </div>
                         <div class="col">
-                            <a href="{{ route('liste_classe_matiere_lecon_evaluation_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h3>Suivant</h3> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_objectif_etudiant_eval',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h3>Suivant</h3> </a>
 
                         </div>
                      </div>

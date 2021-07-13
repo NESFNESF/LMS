@@ -187,12 +187,12 @@
                         @csrf
                     <div class="card icon-text">
                         <div class="card-header">
-                            <h1><strong>EVALUATION</strong></h1>
+                            <h3><strong>EVALUATION</strong></h3>
 
                         </div>
                         <div class="card-body">
 
-                            <h1>Partie QCM : </h1>
+                            <h3>Partie QCM : </h3>
 
                             @php
                                 $i = 1;
@@ -276,14 +276,14 @@
                             @endphp
                             @endforeach
                             <br><br>
-                            <h1>Partie Vrai/Faux : </h1>
+                            <h3>Partie Vrai/Faux : </h3>
                             @php
                                 $j = 1;
                             @endphp
 
                             @foreach ($vfs as $vf )
                             <p>
-                                <h2> {{ $j }}- {{ $vf->question }}</h2>
+                                <h4> {{ $j }}- {{ $vf->question }}</h4>
 
                                 <div class="row justify-content-between">
 

@@ -32,8 +32,6 @@
 <body>
 
 
-
-
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
@@ -161,106 +159,55 @@
 
         </header><!-- /header -->
         <!-- Header-->
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Liste des Leçons</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li class="active"> <a href="{{ route('liste_classe_matiere_etudiant',['id' => $user->id ,'id_c' => $classe->id ]) }}">{{ $classe->nom }} </a> \ {{ $matiere->nom }}</li>
-                        </ol>
-                    </div>
+      <!-- Header-->
+      <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>{{ $lecon->titre }}</h1>
                 </div>
             </div>
         </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li class="active"><a href="{{route('liste_classe_enseignant',$user->id) }}">Liste des Classes </a>  \ <a href="{{ route('liste_classe_matiere_enseignant',['id' => $user->id ,'id_c' => $classe->id ]) }}">{{ $classe->nom }} </a> \  <a href="{{ route('liste_classe_matiere_lecon_enseignant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ]) }}" >{{ $matiere->nom }}</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <div class="content mt-3">
-            <div class="row">
-@php
-    $j = 1;
-@endphp
+        <div class="content mt-3 ml-0">
+            <div class="animated fadeIn">
 
-                @foreach ($lecons as $lecon)
+                <div class="social-buttons">
+                    <div class="card icon-text">
+                        <div class="card-header">
+                            <h1><strong>OBJECTIFS D'EVALUATION</strong></h1>
 
-                <?php $i=rand(1,3);  ?>
+                        </div>
+                        <div class="card-body">
 
-                        <div class="col-md-4">
-                                        <aside class="profile-nav alt">
-                                            <section class="card">
-                                            @if($i == 1)
-                                                <div class="card-header user-header alt bg-info">
-                                            @elseif($i == 2)
-                                            <div class="card-header user-header alt bg-dark">
-                                            @else
-                                            <div class="card-header user-header alt bg-success">
-                                            @endif
-                                                    <div class="media">
+                            @foreach ($objectifs as $objectif )
+                            <h4>- {{ $objectif }}</h4>
+                            @endforeach
+                        </div>
+                    </div>
 
-                                                        <div class="media-body">
-                                                            <h2 class="text-light display-6">Leçon {{$j}}</h2>
+                    <div class="row justify-content-between">
+                        <div class="col-4 ">
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                @php
-                                                    $j = $j + 1;
-                                                @endphp
-
-                                                <blockquote class="blockquote text-justify mb-0 text-light">
-                                                    <p class=" text-center">TITRE : {{$lecon->titre}}</p>
-
-                                                </blockquote>
-
-                                                <ul class="list-group list-group-flush">
+                                <a href="{{ route('liste_classe_matiere_lecon_trace',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h5>Suivant</h5> </a>
 
 
-                                                    <li class="list-group-item">
-                                                        <i class="fa fa-phone-square"></i> Créer le <span class="badge badge-primary pull-right">{{ $lecon->created_at }}</span>
-                                                    </li>
-                                                    @php
-                                                           $note = DB::table('lecon_etudiants')->where('idL',$lecon->id )
-                                                                                                ->where('idEd',$user->id)->get();
+                        </div>
+                        <div class="col-4">
+                            <a href="{{ route('liste_classe_matiere_lecon_evaluation',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h5>Suivant</h5> </a>
 
-
-                                                    @endphp
-                                                    @if (count($note)!= 0)
-
-                                                    <li class="list-group-item">
-                                                        <i class="fa fa-phone-square"></i> Note / 100  <span class="badge badge-primary pull-right">{{ $note[0]->evolution }}</span>
-                                                    </li>
-                                                    @else
-                                                    <li class="list-group-item">
-                                                        <i class="fa fa-phone-square"></i> Note / 100  <span class="badge badge-primary pull-right">0</span>
-                                                    </li>
-                                                      @endif
-                                                    <li class="list-group-item">
-                                                        <div class="row justify-content-between">
-                                                            <div class="col-4">
-
-                                                                <a href="{{ route('liste_classe_matiere_lecon_prerequiq_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn-sm">Commencer la leçon</a>
-
-                                                            </div>
-                                                            <div class="col-5">
-                                                                 </div>
-                                                          </div>
-                                                      </li>
-
-                                                </ul>
-
-                                            </section>
-                                        </aside>
-                                    </div>
-
-
-                        @endforeach
-
-
+                        </div>
+                      </div>
 
                 </div>
 

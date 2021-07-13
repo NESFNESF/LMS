@@ -15,7 +15,9 @@ use App\Models\MatiereLecon;
 use App\Models\Objectif;
 use App\Models\QCM;
 use App\Models\Situation;
+use App\Models\prerequiq;
 use App\Models\Trace;
+use App\Models\ObjectifEvaluation;
 use App\Models\User;
 use App\Models\VraiFaux;
 use Illuminate\Validation\Rules\Exists;
@@ -134,6 +136,20 @@ class Enseignants extends Controller
 
     }
 
+    
+    public function classe_matiere_lecons_prerequiq($id , $id_c , $id_m,$id_l){
+        $user = Enseignant::find($id);
+        $classe=Classe::find($id_c);
+        $matiere = Matiere::find($id_m);
+        $lecon = Lecon::find($id_l);
+
+        $consignes = DB::table('prerequiqs')->where('idL' , $id_l)->get();
+
+        return view('enseignant.prerequiq',compact('user','matiere','classe','lecon','consignes'));
+
+    }
+
+
     public function classe_matiere_lecons_objectifs($id , $id_c , $id_m,$id_l){
         $user = Enseignant::find($id);
         $classe=Classe::find($id_c);
@@ -184,12 +200,26 @@ class Enseignants extends Controller
         $matiere = Matiere::find($id_m);
         $lecon = Lecon::find($id_l);
 
-        $trace = DB::table('traces')->where('idL' , $id_l)->get();
-        $trace = $trace[0];
+        $trace =  DB::table('traces')->where('idL' , $id_l)->get();
+        $trace =  $trace[0];
 
         return view('enseignant.trace',compact('user','matiere','classe','lecon','trace'));
 
     }
+    
+    public function classe_matiere_lecons_objectifs_eval($id , $id_c , $id_m,$id_l){
+        $user = Enseignant::find($id);
+        $classe=Classe::find($id_c);
+        $matiere = Matiere::find($id_m);
+        $lecon = Lecon::find($id_l);
+
+        $objectifs = explode('$',DB::table('objectif_evaluations')->where('idL' , $id_l)->get()[0]->description);
+
+        return view('enseignant.objectif_eval',compact('user','matiere','classe','lecon','objectifs'));
+
+    }
+
+
     public function classe_matiere_lecons_evaluation($id , $id_c , $id_m,$id_l){
         $user = Enseignant::find($id);
         $classe=Classe::find($id_c);
@@ -242,6 +272,34 @@ class Enseignants extends Controller
         $matiere_lecon->idL = $id_l;
         $matiere_lecon->save();
 
+        
+        for($i=1;$i <= $request->input('compteurp');$i++){
+
+            $consignep = new Prerequiq();
+            $consignep->idL = $id_l;
+
+            $qcm1 = $request->input('reponsep1'.$i);
+            $qcm2 = $request->input('reponsep2'.$i);
+            $qcm3 = $request->input('reponsep3'.$i);
+            $choix1 = $request->input('choixp1'.$i);
+            $choix2 = $request->input('choixp2'.$i);
+
+            if(isset($choix1)==true){
+                $consignep->reponse = $qcm1;
+            }elseif(isset($choix2)==true){
+                $consignep->reponse = $qcm2;
+            }else{
+                $consignep->reponse = $qcm3;
+            }
+            $consignep->qcm1 = $qcm1;
+            $consignep->qcm2 = $qcm2;
+            $consignep->qcm3 = $qcm3;
+            $consignep->question = $request->input('prerequiq'.$i);
+
+            $consignep->save();
+
+        }
+
         //SAUVEGARDE DE L'OBJECTIF DE LA LECON
 
         $objectif = new Objectif();
@@ -249,6 +307,14 @@ class Enseignants extends Controller
         $objectif->description = $request->input('objectif');
 
         $objectif->save();
+
+        
+         $objectif_eval = new ObjectifEvaluation();
+        $objectif_eval->idL = $id_l;
+        $objectif_eval->description = $request->input('objectif_eval');
+
+        $objectif_eval->save();
+
 
         $indicateur = new Indicateur();
         $indicateur->idL = $id_l;
@@ -380,6 +446,35 @@ class Enseignants extends Controller
         $matiere_lecon->idL = $id_l;
         $matiere_lecon->save();
 
+        
+        
+        for($i=1;$i <= $request->input('compteurp');$i++){
+
+            $consignep = new Prerequiq();
+            $consignep->idL = $id_l;
+
+            $qcm1 = $request->input('reponsep1'.$i);
+            $qcm2 = $request->input('reponsep2'.$i);
+            $qcm3 = $request->input('reponsep3'.$i);
+            $choix1 = $request->input('choixp1'.$i);
+            $choix2 = $request->input('choixp2'.$i);
+
+            if(isset($choix1)==true){
+                $consignep->reponse = $qcm1;
+            }elseif(isset($choix2)==true){
+                $consignep->reponse = $qcm2;
+            }else{
+                $consignep->reponse = $qcm3;
+            }
+            $consignep->qcm1 = $qcm1;
+            $consignep->qcm2 = $qcm2;
+            $consignep->qcm3 = $qcm3;
+            $consignep->question = $request->input('prerequiq'.$i);
+
+            $consignep->save();
+
+        }
+
         //SAUVEGARDE DE L'OBJECTIF DE LA LECON
 
         $objectif = new Objectif();
@@ -438,6 +533,12 @@ class Enseignants extends Controller
         $trace->lien = $lien;
 
         $trace->save();
+
+         $objectif_eval = new ObjectifEvaluation();
+        $objectif_eval->idL = $id_l;
+        $objectif_eval->description = $request->input('objectif_eval');
+
+        $objectif_eval->save();
 
         $evaluation = new Evaluation();
         $evaluation->idL = $id_l;

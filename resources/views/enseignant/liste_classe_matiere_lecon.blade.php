@@ -228,7 +228,7 @@
                                                         <div class="row justify-content-between">
                                                             <div class="col-4">
 
-                                                                <a href="{{ route('liste_classe_matiere_lecon',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id , 'id_l' => $lecon->id ]) }}" class="btn btn-primary btn-sm">Commencer la leçon</a>
+                                                                <a href="{{ route('liste_classe_matiere_lecon_prerequiq',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id , 'id_l' => $lecon->id ]) }}" class="btn btn-primary btn-sm">Commencer la leçon</a>
 
                                                             </div>
                                                             <div class="col-5">

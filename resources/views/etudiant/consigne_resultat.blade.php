@@ -293,7 +293,7 @@
 
 
                             @if ($note < 50)
-                            <a href="{{ route('liste_classe_matiere_lecon_consigne_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-danger btn"><h5>Suivant </h5> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_consigne_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-danger btn"><h5>Recommencer </h5> </a>
 
 
                             @else

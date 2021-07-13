@@ -33,7 +33,6 @@
 
 
 
-
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
@@ -42,7 +41,7 @@
             <div class="header-menu">
 
                 <div class="col-sm-7">
-                     <div class="header-left">
+                        <div class="header-left">
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
                             <form class="search-form">
@@ -165,7 +164,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Liste des Leçons</h1>
+                        <h1>{{ $lecon->titre }}</h1>
                     </div>
                 </div>
             </div>
@@ -173,94 +172,139 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li class="active"> <a href="{{ route('liste_classe_matiere_etudiant',['id' => $user->id ,'id_c' => $classe->id ]) }}">{{ $classe->nom }} </a> \ {{ $matiere->nom }}</li>
+                            <li class="active"><a href="{{ route('liste_classe_matiere_etudiant',['id' => $user->id ,'id_c' => $classe->id ]) }}">{{ $classe->nom }} </a> \  <a href="{{ route('liste_classe_matiere_lecon_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ]) }}" >{{ $matiere->nom }}</a></li>
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="content mt-3">
-            <div class="row">
-@php
-    $j = 1;
-@endphp
+        <div class="content mt-3 ml-0">
+            <div class="animated fadeIn">
 
-                @foreach ($lecons as $lecon)
+                <div class="social-buttons">
 
-                <?php $i=rand(1,3);  ?>
+                    <div class="card icon-text">
+                        <div class="card-header">
+                            <h1><strong>CONSIGNE</strong></h1>
 
-                        <div class="col-md-4">
-                                        <aside class="profile-nav alt">
-                                            <section class="card">
-                                            @if($i == 1)
-                                                <div class="card-header user-header alt bg-info">
-                                            @elseif($i == 2)
-                                            <div class="card-header user-header alt bg-dark">
-                                            @else
-                                            <div class="card-header user-header alt bg-success">
-                                            @endif
-                                                    <div class="media">
+                        </div>
 
-                                                        <div class="media-body">
-                                                            <h2 class="text-light display-6">Leçon {{$j}}</h2>
 
-                                                        </div>
-                                                    </div>
-                                                </div>
+
+                        <div class="card-body">
+
+                            @php
+                                $i = 1;
+                                $compte = 0;
+                            @endphp
+
+                            @foreach ($consignes as $consigne )
+                            <p>
+                                <h4> {{ $i }}- {{ $consigne->question }}</h4>
+
+                                <div class="row justify-content-between">
+                                    <div class="col">
+                                        @if ($request->input('qcm'.$consigne->id) == $consigne->qcm1)
+
+                                            @if ($request->input('qcm'.$consigne->id) == $consigne->reponse)
+
+                                                <span class="text-success">{{ $consigne->qcm1 }} (bonne réponse)</span>
                                                 @php
-                                                    $j = $j + 1;
+                                                    $compte = $compte + 1;
                                                 @endphp
+                                            @else
+                                            <span class="text-danger">{{ $consigne->qcm1 }} (mauvaise réponse)</span>
+                                            @endif
 
-                                                <blockquote class="blockquote text-justify mb-0 text-light">
-                                                    <p class=" text-center">TITRE : {{$lecon->titre}}</p>
-
-                                                </blockquote>
-
-                                                <ul class="list-group list-group-flush">
-
-
-                                                    <li class="list-group-item">
-                                                        <i class="fa fa-phone-square"></i> Créer le <span class="badge badge-primary pull-right">{{ $lecon->created_at }}</span>
-                                                    </li>
-                                                    @php
-                                                           $note = DB::table('lecon_etudiants')->where('idL',$lecon->id )
-                                                                                                ->where('idEd',$user->id)->get();
+                                        @else
+                                        {{ $consigne->qcm1 }}
+                                        @endif
 
 
-                                                    @endphp
-                                                    @if (count($note)!= 0)
 
-                                                    <li class="list-group-item">
-                                                        <i class="fa fa-phone-square"></i> Note / 100  <span class="badge badge-primary pull-right">{{ $note[0]->evolution }}</span>
-                                                    </li>
-                                                    @else
-                                                    <li class="list-group-item">
-                                                        <i class="fa fa-phone-square"></i> Note / 100  <span class="badge badge-primary pull-right">0</span>
-                                                    </li>
-                                                      @endif
-                                                    <li class="list-group-item">
-                                                        <div class="row justify-content-between">
-                                                            <div class="col-4">
 
-                                                                <a href="{{ route('liste_classe_matiere_lecon_prerequiq_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn-sm">Commencer la leçon</a>
-
-                                                            </div>
-                                                            <div class="col-5">
-                                                                 </div>
-                                                          </div>
-                                                      </li>
-
-                                                </ul>
-
-                                            </section>
-                                        </aside>
                                     </div>
+                                    <div class="col">
+                                        @if ($request->input('qcm'.$consigne->id) == $consigne->qcm2)
+
+                                        @if ($request->input('qcm'.$consigne->id) == $consigne->reponse)
+
+                                        <span class="text-success">{{ $consigne->qcm1 }} (bonne réponse)</span>
+                                        @php
+                                        $compte = $compte + 1;
+                                    @endphp
+                                        @else
+                                        <span class="text-danger">{{ $consigne->qcm1 }} (mauvaise réponse)</span>
+                                        @endif
+
+                                    @else
+                                    {{ $consigne->qcm2 }}
+                                    @endif    </div>
+                                    <div class="col">
+                                        @if ($request->input('qcm'.$consigne->id) == $consigne->qcm3)
+
+                                        @if ($request->input('qcm'.$consigne->id) == $consigne->reponse)
+
+                                        <span class="text-success">{{ $consigne->qcm1 }} (bonne réponse)</span>
+                                        @php
+                                        $compte = $compte + 1;
+                                    @endphp
+                                            @else
+                                            <span class="text-danger">{{ $consigne->qcm1 }} (mauvaise réponse)</span>
+                                            @endif
+
+                                    @else
+                                    {{ $consigne->qcm3 }}
+                                    @endif    </div>
+                                 </div>
+
+                            </p>
+                            @php
+                                $i = $i +1;
+                            @endphp
+                            @endforeach
 
 
-                        @endforeach
+                        </div>
+
+ @php
+
+                            $note = ($compte/($i - 1) )*100;
+                            if( $note < 50) {
+                                 echo '<span class = "text-danger" ><strong> POURCENTAGE  : '.$note.'</strong></span>';
+                            } else {
+                                echo '<span class = "text-success" ><strong> POURCENTAGE  : '.$note.'</strong></span>';
+                            }
 
 
+                        @endphp
+                    </div>
+
+                    <div class="row justify-content-between">
+                        <div class="col">
+
+                            <a href="{{ route('liste_classe_matiere_lecon_prerequiq_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h5>Précédent </h5> </a>
+
+                        </div>
+                        <div class="col">
+
+
+
+
+                            @if ($note < 50)
+                            <a href="{{ route('liste_classe_matiere_lecon_prerequis_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-danger btn"><h5>Recommencer </h5> </a>
+
+
+                            @else
+                            <a href="{{ route('liste_classe_matiere_lecon_objectif_etudiant',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h5>Suivant </h5> </a>
+
+                            @endif
+
+
+
+                        </div>
+                     </div>
 
                 </div>
 

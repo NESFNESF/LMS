@@ -185,12 +185,12 @@
                 <div class="social-buttons">
                     <div class="card icon-text">
                         <div class="card-header">
-                            <h1><strong>EVALUATION</strong></h1>
+                            <h3><strong>EVALUATION</strong></h3>
 
                         </div>
                         <div class="card-body">
 
-                            <h1>Partie QCM : </h1>
+                            <h4>Partie QCM : </h4>
                             @php
                                 $i = 1;
                             @endphp
@@ -218,14 +218,14 @@
                         @endphp
                             @endforeach
                             <br><br>
-                            <h1>Partie Vrai/Faux : </h1>
+                            <h4>Partie Vrai/Faux : </h4>
                             @php
                                 $j = 1;
                             @endphp
 
                             @foreach ($vfs as $vf )
                             <p>
-                                <h2> {{ $j }}- {{ $vf->question }}</h2>
+                                <h4> {{ $j }}- {{ $vf->question }}</h4>
 
                                 <div class="row justify-content-between">
 
@@ -248,7 +248,7 @@
                     <div class="row justify-content-between">
                         <div class="col">
 
-                            <a href="{{ route('liste_classe_matiere_lecon_trace',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h5>Retour </h5> </a>
+                            <a href="{{ route('liste_classe_matiere_lecon_eval',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-primary btn"><h5>Retour </h5> </a>
 
                         </div>
 

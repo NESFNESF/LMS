@@ -203,6 +203,46 @@
                                 </div>
                                 <small class="form-text text-muted">ex. LE MONDE NUMÉRIQUE</small>
                             </div>
+
+
+
+                            
+                               <div class="form-group">
+                                <label class=" form-control-label">Prerequis : </label>
+                                <div class="input-group">
+
+                                    <div id="prerequiq">
+                                        <div class="row">
+                                            <br />
+                                            <input name="prerequiq1" required class="form-control " type="text" placeholder="saisir la prerequis 1" size="50" />
+                                            <br />
+                                            <br />
+
+
+                                            <div class="col-1"> <input  type="radio" for="reponsep1" name="choixp11" value="true" /> </div>
+                                            <div class="col"> <input required type=" text " size="10" class=" form-control" name="reponsep11" placeholder=" proposition 1" />
+                                            </div>
+                                            <div class="col-1"> <input  type="radio" for="reponsep2" name="choixp21" value="true" /> </div>
+                                            <div class="col"> <input required type=" text " size="10" class=" form-control" name="reponsep21" placeholder=" proposition 2" /> </div>
+                                            <div class="col-1"> <input  type="radio" for="reponsep3" name=" choixp31" value="true" /> </div>
+                                            <div class="col"> <input required type=" text " size="10" class=" form-control" name="reponsep31" placeholder=" proposition 3" /> </div>
+                                            <br />
+                                            <br />
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <h6>RM:Cliquez sur + pour ajouter un champs de la prerequiq.<input name="compteurp" id="compteurp" type="number" value="1" size="2" hidden> </h6>
+
+                                    <input type="button" class=" bg-success" value="+" onclick="addp()" />
+
+                                    
+
+                                </div>
+
+                            </div>
                             <div class="form-group">
                                 <label class=" form-control-label">Objectifs : </label>
                                 <div class="input-group">
@@ -284,6 +324,16 @@
                                     <input class="form-control" type="file" name="file" required>
                                 </div>
                                 <small class="form-text text-muted">Placer le documents ici</small>
+                            </div>
+                             <div class="form-group">
+                                <label class=" form-control-label">Objectifs evaluation : </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                                    <textarea class="form-control" name="objectif_eval" rows="4" required placeholder="ex:
+                                    -Connaitre l'ordinateur
+                                    -Connaitre le web"></textarea>
+                                </div>
+
                             </div>
                             <div class="form-group">
                                 <label class=" form-control-label">Evaluation  <br/> Partie QCM : </label>
@@ -455,6 +505,112 @@ div.appendChild(document.createElement("br"));
 
             choix3.type = "radio";
             choix3.name = "choix3" + plus;
+            choix3.value = "true";
+            div1.appendChild(br);
+            div1.appendChild(br);
+            div1.appendChild(br);
+
+
+            div1.appendChild(question);
+
+            div1.appendChild(br);
+            div1.appendChild(br);
+            div1.appendChild(br);
+
+
+
+            div21 = document.createElement("div");
+            div22 = document.createElement("div");
+            div23 = document.createElement("div");
+            div24 = document.createElement("div");
+            div25 = document.createElement("div");
+            div26 = document.createElement("div");
+            div21.className = "col-1";
+            div23.className = "col-1";
+            div25.className = "col-1";
+            div22.className = "col";
+            div24.className = "col";
+            div26.className = "col";
+            div21.appendChild(choix1);
+            div22.appendChild(reponse1);
+            div23.appendChild(choix2);
+            div24.appendChild(reponse2);
+            div25.appendChild(choix3);
+            div26.appendChild(reponse3);
+            div2.appendChild(div21);
+            div2.appendChild(div22);
+            div2.appendChild(div23);
+            div2.appendChild(div24);
+            div2.appendChild(div25);
+            div2.appendChild(div26);
+            div.appendChild(div1);
+            div.appendChild(document.createElement("br"));
+            div.appendChild(div2);
+            div.appendChild(br);
+
+
+
+        }
+
+    
+
+    
+        function addp() {
+
+            var div = document.getElementById("prerequiq");
+            var question = document.createElement("input");
+            var reponse1 = document.createElement("input");
+            var reponse2 = document.createElement("input");
+            var reponse3 = document.createElement("input");
+            var choix1 = document.createElement("input");
+            var choix2 = document.createElement("input");
+            var choix3 = document.createElement("input");
+            var br = document.createElement("br");
+            var btn = document.getElementById("compteurp");
+            var plus = btn.value = parseInt(btn.value) + 1;
+            var div1 = document.createElement("div");
+            div2 = document.createElement("div");
+            div2.className = "row";
+            div1.className = "row";
+            question.name = " prerequiq" + plus;
+
+            question.className = "form-control";
+            question.type = "text";
+            question.placeholder = "saisir la prerequiq  " + plus;
+            question.size = "50";
+            question.required = " required";
+
+            reponse1.name = "reponsep1" + plus;
+            reponse1.type = "text";
+            reponse1.placeholder = " proposition 1";
+            reponse1.size = "10";
+            reponse1.className = "form-control";
+            reponse1.required = " required";
+
+            reponse2.name = "reponsep2" + plus;
+            reponse2.type = "text";
+            reponse2.placeholder = " proposition " + plus;
+            reponse2.size = "10";
+            reponse2.className = "form-control";
+            reponse2.required = " require";
+            reponse3.name = "reponsep3" + plus;
+            reponse3.type = "text";
+            reponse3.placeholder = " proposition 3";
+            reponse3.size = "10";
+            reponse3.className = "form-control";
+            reponse3.required = " required";
+
+            choix1.type = "radio";
+            choix1.name = "choixp1" + plus;
+            choix1.value = "true";
+
+
+            choix2.type = "radio";
+            choix2.name = "choixp2" + plus;
+            choix2.value = "true";
+
+            choix3.type = "radio";
+            choix3.name = "choixp3" + plus;
             choix3.value = "true";
             div1.appendChild(br);
             div1.appendChild(br);

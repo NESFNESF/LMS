@@ -76,9 +76,12 @@ Route::get('/enseignant/{id}/classe/{id_c}/matière/{id_m}',[App\Http\Controller
 Route::get('/enseignant/{id}/classe/{id_c}/matière/{id_m}/nouvelle_leçon',[App\Http\Controllers\Enseignants::class,'classe_matiere_ajoutlecons'])->name('liste_classe_matiere_ajoutlecon_enseignant');
 Route::post('/enseignant/{id}/classe/{id_c}/matière/{id_m}/store_leçon',[App\Http\Controllers\Enseignants::class,'classe_matiere_storelecons'])->name('store_lecon');
 Route::post('/enseignant/{id}/classe/{id_c}/matière/{id_m}/store_leçon/{id_l}',[App\Http\Controllers\Enseignants::class,'classe_matiere_storemodifierlecons'])->name('store_modifier_lecon');
+Route::get('/enseignant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/objectifs_eval',[App\Http\Controllers\Enseignants::class,'classe_matiere_lecons_objectifs_eval'])->name('liste_classe_matiere_lecon_eval');
 Route::get('/enseignant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/objectifs',[App\Http\Controllers\Enseignants::class,'classe_matiere_lecons_objectifs'])->name('liste_classe_matiere_lecon');
 Route::get('/enseignant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/indicateur_de compétences',[App\Http\Controllers\Enseignants::class,'classe_matiere_lecons_indicateur'])->name('liste_classe_matiere_lecon_indicateur');
 Route::get('/enseignant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/situation_problème',[App\Http\Controllers\Enseignants::class,'classe_matiere_lecons_situation'])->name('liste_classe_matiere_lecon_situation');
+
+Route::get('/enseignant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/prerequiq',[App\Http\Controllers\Enseignants::class,'classe_matiere_lecons_prerequiq'])->name('liste_classe_matiere_lecon_prerequiq');
 Route::get('/enseignant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/consigne',[App\Http\Controllers\Enseignants::class,'classe_matiere_lecons_consigne'])->name('liste_classe_matiere_lecon_consigne');
 Route::get('/enseignant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/trace',[App\Http\Controllers\Enseignants::class,'classe_matiere_lecons_trace'])->name('liste_classe_matiere_lecon_trace');
 Route::get('/enseignant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/evaluation',[App\Http\Controllers\Enseignants::class,'classe_matiere_lecons_evaluation'])->name('liste_classe_matiere_lecon_evaluation');
@@ -95,7 +98,9 @@ Route::get('/etudiant/{id}',[App\Http\Controllers\Etudiant::class,'index'])->nam
 Route::get('/etudiant/{id}/classe/{id_c}',[App\Http\Controllers\Etudiant::class,'classe_matiere'])->name('liste_classe_matiere_etudiant');
 Route::get('/etudiant/{id}/classe/{id_c}/matière/{id_m}',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons'])->name('liste_classe_matiere_lecon_etudiant');
 
+Route::get('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/objectifs_eval',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons_objectifs_eval'])->name('liste_classe_matiere_lecon_objectif_etudiant_eval');
 
+Route::get('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/prerequiq',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons_prerequiq'])->name('liste_classe_matiere_lecon_prerequiq_etudiant');
 Route::get('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/objectifs',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons_objectifs'])->name('liste_classe_matiere_lecon_objectif_etudiant');
 Route::get('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/indicateur_de compétences',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons_indicateur'])->name('liste_classe_matiere_lecon_indicateur_etudiant');
 Route::get('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/situation_problème',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons_situation'])->name('liste_classe_matiere_lecon_situation_etudiant');
@@ -104,5 +109,6 @@ Route::get('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/trace',[A
 Route::get('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/evaluation',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons_evaluation'])->name('liste_classe_matiere_lecon_evaluation_etudiant');
 Route::get('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/evaluation_success/{note}',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons_evaluation_success'])->name('liste_classe_matiere_lecon_evaluation_etudiant_success');
 
+Route::post('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/prerequiq_resultat',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons_prerequiq_resultat'])->name('liste_classe_matiere_lecon_prerequiq_resultat_etudiant');
 Route::post('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/consigne_resultat',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons_consigne_resultat'])->name('liste_classe_matiere_lecon_consigne_resultat_etudiant');
 Route::post('/etudiant/{id}/classe/{id_c}/matière/{id_m}/leçon/{id_l}/evaluation_resultat',[App\Http\Controllers\Etudiant::class,'classe_matiere_lecons_evaluation_resultat'])->name('liste_classe_matiere_lecon_evaluation_resultat_etudiant');

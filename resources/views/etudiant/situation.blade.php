@@ -194,7 +194,7 @@
 
 
                             @foreach ($situations as $situation )
-                            <h4>- {{ $situation }}</h4>
+                            <h4> {{ $situation }}</h4>
                             @endforeach
                         </div>
                     </div>

@@ -56,7 +56,7 @@
 
 					<div class="container-login100-form-btn">
 
-							<input class="login100-form-btn bg-info" type="submit" value="Se connecté"/>
+							<input class="login100-form-btn bg-info" type="submit" value="Se connecter"/>
 
 
 					</div>

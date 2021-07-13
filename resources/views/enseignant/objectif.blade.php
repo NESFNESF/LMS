@@ -190,18 +190,32 @@
                         </div>
                         <div class="card-body">
 
-
+ @php
+                    $i = 0;
+                    @endphp
 
                             @foreach ($objectifs as $objectif )
-                            <h4>- {{ $objectif }}</h4>
+                                @if ($i == 0)
+                                    <h4> {{ $objectif }}</h4>
+
+                                    @php
+                                     $i = 1;
+                                    @endphp
+                                   
+                                @else
+                                    <h4>- {{ $objectif }}</h4>
+                                @endif
+                            
                             @endforeach
+
                         </div>
                     </div>
 
                     <div class="row justify-content-between">
                         <div class="col-4 ">
 
-                           
+                             <a href="{{ route('liste_classe_matiere_lecon_prerequiq',['id' => $user->id ,'id_c' => $classe->id , 'id_m' => $matiere->id ,'id_l' => $lecon->id]) }}" class="btn btn-success btn"><h5>Précédent</h5> </a>
+
 
                         </div>
                         <div class="col-4">

@@ -56,6 +56,29 @@ class Etudiant extends Controller
 
     }
 
+      public function classe_matiere_lecons_prerequiq($id , $id_c , $id_m,$id_l){
+        $user = ModelsEtudiant::find($id);
+        $classe=Classe::find($id_c);
+        $matiere = Matiere::find($id_m);
+        $lecon = Lecon::find($id_l);
+
+        $consignes = DB::table('prerequiqs')->where('idL' , $id_l)->get();
+
+        return view('etudiant.prerequiq',compact('user','matiere','classe','lecon','consignes'));
+
+    }
+    
+    public function classe_matiere_lecons_objectifs_eval($id , $id_c , $id_m,$id_l){
+        $user = ModelsEtudiant::find($id);
+        $classe=Classe::find($id_c);
+        $matiere = Matiere::find($id_m);
+        $lecon = Lecon::find($id_l);
+
+        $objectifs = explode('$',DB::table('objectif_evaluations')->where('idL' , $id_l)->get()[0]->description);
+
+        return view('etudiant.objectif_eval',compact('user','matiere','classe','lecon','objectifs'));
+
+    }
     public function classe_matiere_lecons_objectifs($id , $id_c , $id_m,$id_l){
         $user = ModelsEtudiant::find($id);
         $classe=Classe::find($id_c);
@@ -110,6 +133,17 @@ class Etudiant extends Controller
         $consignes = DB::table('consignes')->where('idL' , $id_l)->get();
 
         return view('etudiant.consigne_resultat',compact('user','matiere','classe','lecon','consignes','request'));
+
+    }
+     public function classe_matiere_lecons_prerequiq_resultat(Request $request,$id , $id_c , $id_m,$id_l){
+        $user = ModelsEtudiant::find($id);
+        $classe=Classe::find($id_c);
+        $matiere = Matiere::find($id_m);
+        $lecon = Lecon::find($id_l);
+
+        $consignes = DB::table('prerequiqs')->where('idL' , $id_l)->get();
+
+        return view('etudiant.prerequiq_resultat',compact('user','matiere','classe','lecon','consignes','request'));
 
     }
     public function classe_matiere_lecons_trace($id , $id_c , $id_m,$id_l){
