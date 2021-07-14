@@ -185,7 +185,7 @@
                 <div class="social-buttons">
                     <div class="card icon-text">
                         <div class="card-header">
-                            <h1><strong>SITUATION PROBLÈME</strong></h1>
+                            <h3><strong>SITUATION PROBLÈME</strong></h3>
 
                         </div>
                         <div class="card-body">

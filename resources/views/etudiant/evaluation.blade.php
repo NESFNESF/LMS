@@ -187,12 +187,12 @@
                         @csrf
                     <div class="card icon-text">
                         <div class="card-header">
-                            <h1><strong>EVALUATION</strong></h1>
+                            <h3><strong>EVALUATION</strong></h3>
 
                         </div>
                         <div class="card-body">
 
-                            <h1>Partie QCM : </h1>
+                            <h1>Partie QCM : Choisissez la bonne reponse</h1>
 
                             @php
                                 $i = 1;
@@ -221,7 +221,7 @@
                             @endphp
                             @endforeach
                             <br><br>
-                            <h1>Partie Vrai/Faux : </h1>
+                            <h1>Partie Vrai/Faux : Dites si c'est vrai ou faux </h1>
                             @php
                                 $j = 1;
                             @endphp

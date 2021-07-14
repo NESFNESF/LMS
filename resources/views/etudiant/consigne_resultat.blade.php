@@ -186,7 +186,7 @@
 
                     <div class="card icon-text">
                         <div class="card-header">
-                            <h1><strong>CONSIGNE</strong></h1>
+                            <h3><strong>CONSIGNE</strong></h3>
 
                         </div>
 

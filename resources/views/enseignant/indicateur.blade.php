@@ -185,7 +185,7 @@
                 <div class="social-buttons">
                     <div class="card icon-text">
                         <div class="card-header">
-                            <h1><strong>INDICATEURS DE COMPÉTENCE</strong></h1>
+                            <h3><strong>INDICATEURS DE COMPÉTENCE</strong></h3>
 
                         </div>
                         <div class="card-body">

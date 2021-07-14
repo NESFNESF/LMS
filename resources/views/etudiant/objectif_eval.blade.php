@@ -185,15 +185,29 @@
                 <div class="social-buttons">
                     <div class="card icon-text">
                         <div class="card-header">
-                            <h1><strong>OBJECTIFS D'EVALUATION</strong></h1>
+                            <h3><strong>OBJECTIFS D'EVALUATION</strong></h3>
 
                         </div>
                         <div class="card-body">
 
 
 
+ @php
+                    $i = 0;
+                    @endphp
+
                             @foreach ($objectifs as $objectif )
-                            <h4>- {{ $objectif }}</h4>
+                                @if ($i == 0)
+                                    <h4> {{ $objectif }}</h4>
+
+                                    @php
+                                     $i = 1;
+                                    @endphp
+                                   
+                                @else
+                                    <h4>- {{ $objectif }}</h4>
+                                @endif
+                            
                             @endforeach
                         </div>
                     </div>

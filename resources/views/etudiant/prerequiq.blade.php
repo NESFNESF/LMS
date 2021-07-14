@@ -187,7 +187,7 @@
                             @csrf
                     <div class="card icon-text">
                         <div class="card-header">
-                            <h1><strong>PREREQUIS</strong></h1>
+                            <h3><strong>PREREQUIS : Choisissez la bonne reponse</strong></h3>
 
                         </div>
 
